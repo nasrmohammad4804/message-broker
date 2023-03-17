@@ -13,7 +13,7 @@ import static com.nasr.rabbitmqtutorial.constant.ConstantField.RABBITMQ_RECEIVE_
 
 @Slf4j
 @Component
-public class SmsReceiverListener {
+public class SmsConsumer {
 
     @Autowired
     private SmsService smsService;

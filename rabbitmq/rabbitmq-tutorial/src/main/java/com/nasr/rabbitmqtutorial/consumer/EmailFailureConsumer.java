@@ -9,7 +9,7 @@ import static com.nasr.rabbitmqtutorial.constant.ConstantField.*;
 
 @Slf4j
 @Component
-public class EmailFailureReceiverListener {
+public class EmailFailureConsumer {
 
     @RabbitListener(queues = RABBITMQ_RECEIVE_FAILURE_NOTIFICATION_QUEUE)
     public void consume(Notification dto){

@@ -11,7 +11,7 @@ import static com.nasr.rabbitmqtutorial.constant.ConstantField.RABBITMQ_RECEIVE_
 
 @Component
 @Slf4j
-public class EmailReceiverListener {
+public class EmailConsumer {
 
     @Autowired
     private EmailService emailService;
