@@ -9,26 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.nasr.rabbitmqtutorial.enumeration.NotificationType.EMAIL;
+import static com.nasr.rabbitmqtutorial.enumeration.NotificationType.SMS;
 
 @RestController
+public class SmsController {
 
-public class EmailController {
-
-    public static final String SEND_EMAIL_ROUTING_KEY = "send.email";
+    public static final String SEND_SMS_ROUTING_KEY = "send.sms";
     @Autowired
     private NotificationPublisher notificationPublisher;
 
-    @PostMapping("/send-email")
-    public ResponseEntity<?> sendEmail(@RequestBody NotificationRequest request) {
+    @PostMapping("/send-sms")
+    public ResponseEntity<?> sendSms(@RequestBody NotificationRequest request) {
 
         Notification notification = Notification.builder()
-                .content(request.getContent())
-                .to(request.getTo()).type(EMAIL)
+                .to(request.getTo())
+                .content(request.getContent()).type(SMS)
                 .build();
+        notificationPublisher.publish(notification, SEND_SMS_ROUTING_KEY);
 
-        notificationPublisher.publish(notification, SEND_EMAIL_ROUTING_KEY);
-
-        return ResponseEntity.ok("email successfully sent");
+        return ResponseEntity.ok("sms successfully sent to phoneNumber : " + request.getTo());
     }
 }

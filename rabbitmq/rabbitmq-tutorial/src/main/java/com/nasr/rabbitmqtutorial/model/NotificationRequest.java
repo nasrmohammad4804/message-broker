@@ -1,16 +1,16 @@
 package com.nasr.rabbitmqtutorial.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
-
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailRequestDto implements Serializable {
+public class NotificationRequest {
 
-    private String to;
     private String content;
+    private String to;
 }

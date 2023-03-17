@@ -1,0 +1,26 @@
+//notice for send message on multiple server or machine with rabbit
+at first we create fanout exchange
+and every server need to consume message need to create default queue(generate with random name) and
+bind it to fanout exchange that we introduced in last step
+after that we subscribe to this queue in application
+and consume all message send to fanout exchange routed to all queue bind it
+and we now only on application can consume queue and after connection closed
+then queue automatically deleted
+//then with this approach we can send a message to multiple server
+---------------------------------------------------------------------
+note about expression in topic exchange
+
+first thing you need to consider in topic exchange every word separate from each other by .
+mean your routing key with 3 word like asia.iran.tehran
+
+1. use *
+2. use #
+
+1) if you using * you can place only one word for example asia.iran.*
+only accept asia.iran.isfahan or asia.iran.qom
+but if you want to don't put any word on this place or replace more than one word not accept
+for example asia.iran or asia.iran.tehran.damavand not accept
+
+2) if you using # you can replace no word or one word either more that one word is acceptable
+for example if you set asia.iran(as no word) or asia.iran.shiraz(as one word) or asia.iran.tehran.damavand(as more than one word ) accepted
+better than to use # at the end of phrase
