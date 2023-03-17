@@ -1,6 +1,7 @@
-package com.nasr.rabbitmqtutorial.service;
+package com.nasr.rabbitmqtutorial.service.impl;
 
 import com.nasr.rabbitmqtutorial.model.Notification;
+import com.nasr.rabbitmqtutorial.service.NotificationService;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -8,7 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailService implements NotificationService {
+public class EmailServiceImpl implements NotificationService {
     @Autowired
     private JavaMailSender mailSender;
 

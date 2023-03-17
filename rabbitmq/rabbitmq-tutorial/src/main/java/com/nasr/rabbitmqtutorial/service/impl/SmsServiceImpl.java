@@ -1,6 +1,7 @@
-package com.nasr.rabbitmqtutorial.service;
+package com.nasr.rabbitmqtutorial.service.impl;
 
 import com.nasr.rabbitmqtutorial.model.Notification;
+import com.nasr.rabbitmqtutorial.service.NotificationService;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-public class SmsService implements NotificationService {
+public class SmsServiceImpl implements NotificationService {
     public static final String USERNAME = "xxx";
     public static final String PASSWORD = "xxx";
 
