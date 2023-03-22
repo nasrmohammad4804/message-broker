@@ -24,3 +24,18 @@ for example asia.iran or asia.iran.tehran.damavand not accept
 2) if you using # you can replace no word or one word either more that one word is acceptable
 for example if you set asia.iran(as no word) or asia.iran.shiraz(as one word) or asia.iran.tehran.damavand(as more than one word ) accepted
 better than to use # at the end of phrase
+_-------------------------------------------
+
+3 common scenario that dead letter happened
+
+1 :if application that consume message get error and
+don't sens ack (for removing from queue) and send nack for reject
+if dead letter set for this queue then forwarded to
+dead letter exchange otherwise remove it from queue and ignore 
+
+2. if overflow occurred for example if you set 100 kb message
+stored in queue if received new message then if dead letter set forwarded to dead letter exchange
+
+3. other scenario when x ttl message considered for queue . Means after specified time
+that message placed in queue for example 10 second if any consumer don't consume
+this message then forwarded to dead letter exchange
